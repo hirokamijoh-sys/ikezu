@@ -31,14 +31,16 @@ export default function App() {
   };
 
   const handleConvert = async () => {
+    console.log("handleConvert triggered with input:", input);
     if (!input.trim()) return;
     setLoading(true);
     try {
       const res = await convertToIkezu(input, level[0]);
+      console.log("Conversion result:", res);
       setResult(res);
       setHistory((prev) => [res, ...prev].slice(0, 5));
     } catch (error) {
-      console.error(error);
+      console.error("Conversion failed:", error);
     } finally {
       setLoading(false);
     }
