@@ -22,3 +22,10 @@ export default defineConfig(({mode}) => {
     },
   };
 });
+export default defineConfig(({mode}) => {
+  // ...既存のコード
+  return {
+    base: '/ikezu/', // ここにリポジトリ名を入れてください
+    // ...既存のコード
+  }
+})
