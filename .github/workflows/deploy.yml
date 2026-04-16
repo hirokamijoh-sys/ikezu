@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # あなたのメインブランチ名に合わせてください
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -28,9 +29,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # ビルド時にAPIキーを埋め込む必要がある場合はここで設定します
-          # GitHubのリポジトリ設定 > Secrets and variables > Actions で設定した名前
-          VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
