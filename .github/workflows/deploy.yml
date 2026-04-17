@@ -39,6 +39,13 @@ jobs:
         with:
           path: './dist'
 
+     - name: Upload build zip for download
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-ikezu-app
+          path: './dist'
+          retention-days: 7
+
   deploy:
     environment:
       name: github-pages
